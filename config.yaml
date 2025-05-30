@@ -3,7 +3,9 @@ gateways:
     connection:
       type: duckdb
       catalogs:
-        ducklake_db: 'ducklake:metadata.ducklake'
+        ducklake_db: 'ducklake:lakehouse.ducklake'
+      extensions:
+        - ducklake
   
     state_connection:
       type: duckdb
