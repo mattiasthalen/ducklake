@@ -3,13 +3,13 @@ gateways:
     connection:
       type: duckdb
       catalogs:
-        ducklake_db: 'ducklake:lakehouse.ducklake'
+        ducklake_db: 'ducklake:lakehouse/metadata.ducklake'
       extensions:
         - ducklake
   
     state_connection:
       type: duckdb
-      database: state.duckdb
+      database: lakehouse/state.duckdb
 
 default_gateway: ducklake
 
