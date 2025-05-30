@@ -5,5 +5,5 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "sqlmesh[dlt,github,lsp,postgres,web]>=0.187.5",
+    "sqlmesh[dlt,github,lsp,postgres,web] @ git+https://github.com/mattiasthalen/sqlmesh.git@add_data_path_to_duckdb_catalog",
 ]
