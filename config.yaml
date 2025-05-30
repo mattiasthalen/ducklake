@@ -1,23 +1,15 @@
 gateways:
-  duckdb:
+  ducklake:
     connection:
-      # For more information on configuring the connection to your execution engine, visit:
-      # https://sqlmesh.readthedocs.io/en/stable/reference/configuration/#connections
-      # https://sqlmesh.readthedocs.io/en/stable/integrations/engines/duckdb/#connection-options
       type: duckdb
-      database: db.duckdb
-      # concurrent_tasks: 1
-      # register_comments: True
-      # pre_ping: False
-      # pretty_sql: False
-      # catalogs: 
-      # extensions: 
-      # connector_config: 
-      # secrets: 
-      # token: 
+      catalogs:
+        ducklake_db: 'ducklake:metadata.ducklake'
+  
+    state_connection:
+      type: duckdb
+      database: state.duckdb
 
-
-default_gateway: duckdb
+default_gateway: ducklake
 
 model_defaults:
   dialect: duckdb
