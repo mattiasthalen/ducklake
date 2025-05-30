@@ -11,6 +11,9 @@
         "ghcr.io/va-h/devcontainers-features/uv:1": {}
     },
 
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/ducklake,type=bind",
+    "workspaceFolder": "/workspaces/ducklake",
+
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     // "forwardPorts": [],
 
