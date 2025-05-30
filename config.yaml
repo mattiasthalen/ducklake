@@ -5,10 +5,8 @@ gateways:
       catalogs:
         lakehouse:
           type: ducklake
-          path: lakehouse/metadata.ducklake
-
-          #path: postgres:host={{ env_var('PG__HOST') }} dbname={{ env_var('PG__DATABASE') }} user={{ env_var('PG__USER') }} password={{ env_var('PG__PASSWORD') }}
-          # data_path: lakehouse/data # Not yet supported by SQLMesh
+          path: postgres:host={{ env_var('PG__HOST') }} dbname={{ env_var('PG__DATABASE') }} user={{ env_var('PG__USER') }} password={{ env_var('PG__PASSWORD') }}
+          data_path: data # Not officially supported by SQLMesh, yet...
       extensions:
         - ducklake
   
