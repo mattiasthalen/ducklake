@@ -8,7 +8,8 @@
     // Features to add to the dev container. More info: https://containers.dev/features.
     "features": {
         "ghcr.io/devcontainers/features/git:1": {},
-        "ghcr.io/va-h/devcontainers-features/uv:1": {}
+        "ghcr.io/va-h/devcontainers-features/uv:1": {},
+        "ghcr.io/eitsupi/devcontainer-features/duckdb-cli:1": {}
     },
 
     "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/ducklake,type=bind",
