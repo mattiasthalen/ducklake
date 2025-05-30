@@ -6,13 +6,20 @@ gateways:
         lakehouse:
           type: ducklake
           path: lakehouse/metadata.ducklake
+
+          #path: postgres:host={{ env_var('PG__HOST') }} dbname={{ env_var('PG__DATABASE') }} user={{ env_var('PG__USER') }} password={{ env_var('PG__PASSWORD') }}
           # data_path: lakehouse/data # Not yet supported by SQLMesh
       extensions:
         - ducklake
   
     state_connection:
-      type: duckdb
-      database: lakehouse/state.duckdb
+      type: postgres
+      host: {{ env_var('PG__HOST') }}
+      port: {{ env_var('PG__PORT') }}
+      database: {{ env_var('PG__DATABASE') }}
+      user: {{ env_var('PG__USER') }}
+      password: endpoint={{ env_var('PG__ENDPOINT_ID') }};{{ env_var('PG__PASSWORD') }} # Neon requires endpoint_id
+      sslmode: require
 
 default_gateway: ducklake
 
