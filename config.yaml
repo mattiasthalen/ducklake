@@ -3,7 +3,7 @@ gateways:
     connection:
       type: duckdb
       catalogs:
-        ducklake:
+        lakehouse:
           type: ducklake
           path: lakehouse/metadata.ducklake
           # data_path: lakehouse/data # Not yet supported by SQLMesh
