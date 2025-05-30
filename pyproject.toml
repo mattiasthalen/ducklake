@@ -1,0 +1,9 @@
+[project]
+name = "ducklake"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "sqlmesh[dlt,github,lsp,postgres,web]>=0.187.5",
+]
