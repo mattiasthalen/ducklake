@@ -24,14 +24,7 @@ Install dependencies using uv (or pip):
 uv sync
 ```
 
-### 2. Activate VENV
-
-```bash
-# Activate virtual environment if using uv
-source .venv/bin/activate
-```
-
-### 3. Environment Setup
+### 2. Environment Setup
 
 Set up your environment variables for Neon PostgreSQL:
 
@@ -44,10 +37,10 @@ export PG__PASSWORD="your-password"
 export PG__ENDPOINT_ID="your-endpoint-id"
 ```
 
-### 4. Plan
+### 3. Plan
 
 ```bash
-sqlmesh plan
+uv run sqlmesh plan
 ```
 
 ## Configuration
