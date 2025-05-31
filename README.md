@@ -1,6 +1,6 @@
 # DuckLake + SQLMesh + PostgreSQL Demo
 
-This project demonstrates how to integrate [DuckLake](https://ducklake.select/), [SQLMesh](https://sqlmesh.com/), and [Neon PostgreSQL](https://neon.com/) to create a modern data lakehouse architecture with version control and state management.
+This project demonstrates how to integrate [DuckLake](https://ducklake.select/), [SQLMesh](https://sqlmesh.com/), [Neon PostgreSQL](https://neon.com/), and [Cloudflare R2](https://developers.cloudflare.com/r2/) to create a modern data lakehouse architecture with version control and state management.
 
 ## Overview
 
@@ -8,6 +8,7 @@ This setup showcases:
 - **DuckLake**: A data lakehouse platform for storing and managing data in Parquet format
 - **SQLMesh**: A DataOps framework for data transformations and pipeline management
 - **Neon PostgreSQL**: Cloud-native PostgreSQL for catalog and state storage
+- **Cloudflare R2**: Object storage for scalable, cost-effective data lake storage and integration with DuckLake
 - **Custom SQLMesh Integration**: Uses a custom fork that adds `data_path` support for DuckDB catalogs
 
 ## Prerequisites
@@ -26,7 +27,7 @@ uv sync
 
 ### 2. Environment Setup
 
-Set up your environment variables for Neon PostgreSQL:
+Set up your environment variables for Neon PostgreSQL and Cloudflare R2:
 
 ```bash
 export PG__HOST="your-neon-host.neon.tech"
@@ -35,6 +36,10 @@ export PG__DATABASE="your-database"
 export PG__USER="your-username"
 export PG__PASSWORD="your-password"
 export PG__ENDPOINT_ID="your-endpoint-id"
+
+export R2__ACCOUNT_ID="your-account-id"
+export R2__ACCESS_KEY_ID="your-key-id"
+export R2__SECRET_ACCESS_KEY="your-secret-key"
 ```
 
 ### 3. Plan
@@ -61,6 +66,12 @@ gateways:
           data_path: data  # Custom enhancement for local data storage
       extensions:
         - ducklake
+        - httpfs
+      secrets:
+        - type: r2
+          account_id: {{ env_var('R2__ACCOUNT_ID') }}
+          key_id: {{ env_var('R2__ACCESS_KEY_ID') }}
+          secret: {{ env_var('R2__SECRET_ACCESS_KEY') }}
 ```
 
 ### Neon PostgreSQL State Storage
