@@ -64,6 +64,7 @@ gateways:
           type: ducklake
           path: postgres:host={{ env_var('PG__HOST') }} dbname={{ env_var('PG__DATABASE') }} user={{ env_var('PG__USER') }} password={{ env_var('PG__PASSWORD') }}
           data_path: data  # Custom enhancement for local data storage
+          encrypted: true
       extensions:
         - ducklake
         - httpfs
