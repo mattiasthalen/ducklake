@@ -63,8 +63,8 @@ gateways:
         lakehouse:
           type: ducklake
           path: postgres:host={{ env_var('PG__HOST') }} dbname={{ env_var('PG__DATABASE') }} user={{ env_var('PG__USER') }} password={{ env_var('PG__PASSWORD') }}
-          data_path: data  # Custom enhancement for local data storage
-          encrypted: true
+          data_path: data  # Custom enhancement for data storage
+          encrypted: true # Custom enhancement for data encryption
       extensions:
         - ducklake
         - httpfs
@@ -90,7 +90,7 @@ state_connection:
   sslmode: require
 ```
 
-> **NOTE:** Neon requires endopoint ID, which can be passed via the password field.
+> **NOTE:** Neon requires endpoint ID, which can be passed via the password field.
 
 ## Custom SQLMesh Fork
 
